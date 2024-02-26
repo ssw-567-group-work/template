@@ -1,0 +1,14 @@
+dist: focal
+language: python
+python:
+  - 3.10
+cache: pip
+
+before_install:
+  - pip install poetry
+install:
+  - poetry install
+  - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s
+script:
+  - just lint
+  - just test
